@@ -99,6 +99,43 @@ public class Main {
 				m.drukujMacierz();
 				
 				scan.close();
+			} else if(type.startsWith("ATSP")) {
+				
+				scan = new Scanner(plik);
+				Macierz m1 = new Macierz(dimension);
+				
+				while(scan.hasNextLine() && !linia.startsWith("EDGE_WEIGHT_SECTION")) {
+					linia = scan.nextLine();
+				}
+				
+				int number = dimension*dimension;
+				
+				int weights[] = new int[number];
+				
+				int c = 0;
+				
+				while(c <= number-1) {
+					
+					linia = scan.nextLine();
+					
+					splitLine = linia.split(" ");
+					splitLine = Test.deleteEmpty(splitLine);
+					
+					for(int k=0; k<=splitLine.length-1; k++) {
+						weights[c] = Integer.parseInt(splitLine[k]);
+						c++;
+					}
+						
+				}
+				
+				for(int i=0; i<=dimension-1; i++) {
+					for(int j=0; j<=dimension-1; j++) {
+						m1.odleglosci[i][j] = weights[i*dimension+j];
+					}
+				}
+				
+				m1.drukujMacierz();
+				scan.close();
 			}
 			
 			
@@ -115,7 +152,8 @@ public class Main {
 	public static void main(String args[]) {
 		
 		//wczytajPlik("/home/jakub_s/AlgMeta/TSP/berlin52.tsp");
-		wczytajPlik("/home/jakub_s/AlgMeta/TSP/ALL_tsp/kroB200.tsp");
+		//wczytajPlik("/home/jakub_s/AlgMeta/TSP/ALL_tsp/kroB200.tsp");
+		wczytajPlik("/home/jakub_s/AlgMeta/TSP/ALL_atsp/ft70.atsp");
 		
 	}
 	
