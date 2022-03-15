@@ -47,4 +47,8 @@ public class Rozwiazanie {
 		
 	}
 	
+	public static Rozwiazanie k_random(Macierz m, int k) {
+		return null;
+	}
+	
 }
