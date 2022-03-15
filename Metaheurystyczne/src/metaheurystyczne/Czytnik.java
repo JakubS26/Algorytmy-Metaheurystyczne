@@ -28,6 +28,8 @@ public class Czytnik {
         } else if (dane.type.startsWith("TSP")) {
             if (dane.edgeWeight.startsWith("EUC_2D")) {
                 tryb = new Tryb_euc_2d();
+            } else if (dane.edgeWeight.startsWith("CEIL_2D")) {
+                tryb = new Tryb_ceil_2d();
             } else if (dane.edgeWeight.startsWith("EXPLICIT")) {
                 if (dane.format.startsWith("FULL_MATRIX")) {
                     tryb = new Tryb_full();
@@ -35,6 +37,8 @@ public class Czytnik {
                     tryb = new Tryb_lower_diag();
                 } else if (dane.format.startsWith("UPPER_DIAG_ROW")) {
                     tryb = new Tryb_upper_diag();
+                } else if (dane.format.startsWith("UPPER_ROW")) {
+                    tryb = new Tryb_upper();
                 } else {
                     throw new IllegalArgumentException("nieznany format macierzy: " + dane.format);
                 }
