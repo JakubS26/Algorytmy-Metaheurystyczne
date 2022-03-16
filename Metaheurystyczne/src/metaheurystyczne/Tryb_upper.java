@@ -36,8 +36,8 @@ public class Tryb_upper implements Tryb {
 
         }
 
-        for(int i=dane.dimension-1; i>=0; i--) {
-            for(int j=0; j<i; j++) {
+        for(int i=0; i<=dane.dimension-1; i++) {
+            for(int j=i+1; j<=dane.dimension-1; j++) {
                 m.odleglosci[i][j] = weights[i*(i-1)/2+j];
                 m.odleglosci[j][i] = m.odleglosci[i][j];
             }

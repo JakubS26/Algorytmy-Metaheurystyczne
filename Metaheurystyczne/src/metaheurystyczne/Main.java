@@ -40,7 +40,7 @@ public class Main {
 
 		Macierz m;
 		if (args.length < 1) {
-			m = wczytajPlik("/home/jakub/pwr/meta/tsplib_ex/tsp/dsj1000.tsp");
+			m = wczytajPlik("/home/jakub/pwr/meta/tsplib_ex/tsp/si175.tsp");
 		} else {
 			m = wczytajPlik(args[0]);
 		}
