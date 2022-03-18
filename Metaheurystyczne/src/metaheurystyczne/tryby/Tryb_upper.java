@@ -1,9 +1,13 @@
-package metaheurystyczne;
+package metaheurystyczne.tryby;
+
+import metaheurystyczne.Dane;
+import metaheurystyczne.Macierz;
+import metaheurystyczne.Test;
 
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class Tryb_upper_diag implements Tryb {
+public class Tryb_upper implements Tryb {
     @Override
     public Macierz wczytaj(Dane dane) throws FileNotFoundException {
         Scanner scan = new Scanner(dane.plik);
@@ -16,7 +20,7 @@ public class Tryb_upper_diag implements Tryb {
             linia = scan.nextLine();
         }
 
-        int number = dane.dimension*(dane.dimension+1)/2;
+        int number = dane.dimension*(dane.dimension-1)/2;
 
         int weights[] = new int[number];
 
@@ -37,10 +41,11 @@ public class Tryb_upper_diag implements Tryb {
         }
 
         for(int i=0; i<=dane.dimension-1; i++) {
-            for(int j=i; j<=dane.dimension-1; j++) {
-                m.odleglosci[i][j] = weights[i*(i+1)/2+j];
+            for(int j=i+1; j<=dane.dimension-1; j++) {
+                m.odleglosci[i][j] = weights[i*(i-1)/2+j];
                 m.odleglosci[j][i] = m.odleglosci[i][j];
             }
+            m.odleglosci[i][i] = 0;
         }
 
         scan.close();

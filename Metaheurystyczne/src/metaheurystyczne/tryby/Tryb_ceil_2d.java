@@ -1,17 +1,20 @@
-package metaheurystyczne;
+package metaheurystyczne.tryby;
+
+import metaheurystyczne.Dane;
+import metaheurystyczne.Macierz;
+import metaheurystyczne.Test;
 
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class Tryb_euc_2d implements Tryb {
+public class Tryb_ceil_2d implements Tryb {
     @Override
     public Macierz wczytaj(Dane dane) throws FileNotFoundException {
-
         Scanner scan = new Scanner(dane.plik);
         Macierz m = new Macierz(dane.dimension);
 
-        double x_coordinates[] = new double[dane.dimension];
-        double y_coordinates[] = new double[dane.dimension];
+        int x_coordinates[] = new int[dane.dimension];
+        int y_coordinates[] = new int[dane.dimension];
 
         String linia = "";
         String[] splitLine = null;
@@ -25,16 +28,16 @@ public class Tryb_euc_2d implements Tryb {
             splitLine = linia.split(" ");
             splitLine = Test.deleteEmpty(splitLine);
 
-            x_coordinates[i] = Double.parseDouble(splitLine[1]);
-            y_coordinates[i] = Double.parseDouble(splitLine[2]);
+            x_coordinates[i] = Integer.parseInt(splitLine[1]);
+            y_coordinates[i] = Integer.parseInt(splitLine[2]);
 
         }
 
         for(int i=0; i<= dane.dimension-1; i++) {
             for(int j=0; j<= dane.dimension-1; j++) {
 
-                double dx = x_coordinates[i] - x_coordinates[j];
-                double dy = y_coordinates[i] - y_coordinates[j];
+                int dx = x_coordinates[i] - x_coordinates[j];
+                int dy = y_coordinates[i] - y_coordinates[j];
 
                 m.odleglosci[i][j] = (int)Math.round(Math.sqrt(dx*dx+dy*dy));
             }

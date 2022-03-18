@@ -1,4 +1,8 @@
-package metaheurystyczne;
+package metaheurystyczne.tryby;
+
+import metaheurystyczne.Dane;
+import metaheurystyczne.Macierz;
+import metaheurystyczne.Test;
 
 import java.io.FileNotFoundException;
 import java.util.Scanner;

@@ -1,5 +1,7 @@
 package metaheurystyczne;
-import java.io.File; 
+import metaheurystyczne.tryby.Czytnik;
+
+import java.io.File;
 import java.io.FileNotFoundException;
 
 public class Main {
@@ -40,17 +42,17 @@ public class Main {
 
 		Macierz m;
 		if (args.length < 1) {
-			m = wczytajPlik("/home/jakub/pwr/meta/tsplib_ex/tsp/si175.tsp");
+			m = wczytajPlik("/home/jakub/pwr/meta/tsplib_ex/tsp/bays29.tsp");
 		} else {
 			m = wczytajPlik(args[0]);
 		}
 
-		//m.drukujMacierz();
+		m.drukujMacierz();
 
-		Rozwiazanie r = new Rozwiazanie(m.rozmiar);
-
-		r.losoweRozwiazanie();
-		//r.wyswietl();
+		//Rozwiazanie r = new Rozwiazanie(m.rozmiar);
+		Rozwiazanie r = new NSasiad(m).rozwiazStartNiezalenie();
+		//r.losoweRozwiazanie();
+		r.wyswietl();
 		
 		int f = m.funkcjaCelu(r);
 		
