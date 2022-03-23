@@ -14,6 +14,7 @@ public class Main {
 			String linia = "";
 			String type;
 			String edge_weight;
+			String edge_format = "";
 			int dimension;
 			
 			//Przeszukujemy plik w poszukiwaniu informacji o typie problemu (TSP / ATSP)
@@ -61,6 +62,27 @@ public class Main {
 			
 			scan.close();
 			
+			//Przeszukujemy plik w poszukiwaniu informacji o formacie instancji (FULL_MATRIX / LOWER_DIAG_ROW)
+			
+			
+			if(edge_weight.startsWith("EXPLICIT")) {
+				
+				scan = new Scanner(plik);
+				
+				while(scan.hasNextLine() && !linia.startsWith("EDGE_WEIGHT_FORMAT")) {
+					linia = scan.nextLine();
+				}
+		
+				splitLine = linia.split(" ");
+				
+				edge_format = splitLine[splitLine.length-1];
+				System.out.println(edge_format);
+				
+				scan.close();
+				
+			}
+			
+			
 			//Tworzymy macierz i wczytujemy dane do tablicy dwuwymiarowej "odleglości"
 			
 			
@@ -101,7 +123,7 @@ public class Main {
 				scan.close();
 				return m;
 				
-			} else if(type.startsWith("ATSP")) {
+			} else if(type.startsWith("ATSP") || (type.startsWith("TSP") && edge_format.startsWith("FULL_MATRIX"))) {
 				
 				scan = new Scanner(plik);
 				Macierz m1 = new Macierz(dimension);
@@ -140,7 +162,7 @@ public class Main {
 				scan.close();
 				return m1;
 				
-			} else if(type.startsWith("TSP") && edge_weight.startsWith("EXPLICIT")) {
+			} else if(type.startsWith("TSP") && edge_format.startsWith("LOWER_DIAG_ROW")) {
 				
 				scan = new Scanner(plik);
 				Macierz m2 = new Macierz(dimension);

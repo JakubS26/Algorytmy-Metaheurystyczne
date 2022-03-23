@@ -61,7 +61,7 @@ public class Rysowanie extends JPanel{
 			x = (float)macierz.x_coordinates[i];
 			y = (float)macierz.y_coordinates[i];
 			
-			Ellipse2D ellipse = new Ellipse2D.Float(x, y, 4, 4);
+			Ellipse2D ellipse = new Ellipse2D.Float(x, y, 7, 7);
 			g2d.fill(ellipse);
 			repaint();
 		}
@@ -94,15 +94,5 @@ public class Rysowanie extends JPanel{
         doDrawing(g);
     }
 	
-	public static void main(String args[]) {
-		
-		//MacierzEuc m = MacierzEuc.wczytajPlik("/home/jakub_s/AlgMeta/TSP/ALL_tsp/a280.tsp");
-		//MacierzEuc m = MacierzEuc.wczytajPlik("/home/jakub_s/AlgMeta/TSP/ALL_tsp/d198.tsp");
-		MacierzEuc m = MacierzEuc.wczytajPlik("/home/jakub_s/AlgMeta/TSP/ALL_tsp/berlin52.tsp");
-		Rozwiazanie r = new Rozwiazanie(m.rozmiar);
-		r.losoweRozwiazanie();
-		Rysowanie rys = new Rysowanie(m, r);
-		
-	}
 	
 }

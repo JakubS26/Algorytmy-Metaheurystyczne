@@ -28,6 +28,14 @@ public class Rozwiazanie {
 		
 	}
 	
+	public void kopiuj(Rozwiazanie r) {
+		
+		for(int i=0; i<=this.rozmiar-1; i++) {
+			this.wierzcholki[i] = r.wierzcholki[i];
+		}
+		
+	}
+	
 	public void losoweRozwiazanie() {
 		
 		for(int i=0; i<=rozmiar-1; i++) {
@@ -46,9 +54,5 @@ public class Rozwiazanie {
 		System.out.println(wierzcholki[0]);
 		
 	}
-	
-	public static Rozwiazanie k_random(Macierz m, int k) {
-		return null;
-	}
-	
+		
 }
