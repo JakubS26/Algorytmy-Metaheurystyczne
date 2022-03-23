@@ -1,0 +1,24 @@
+1. Badanie PRD algorytmu k-random w zależności od k (Kuba S.)
+
+	- wybór instanicji początkoywch (po kilka dla typu), podział na typy i rozmiary (TSPLIB)
+	- pomiary dla k = 500, 1000, ..., 10000 (albo inny zakres, dla którego widać zmienność)
+	- wykresy zależności PRD od k dla poszczególnych instancji (wyniki osobne + średnia dla określonego rozmiaru i typu)
+
+2. Porównanie PRD dla losowych instancji, dla algorytmów k-random, 2OPT, i rozszerzonego sąsiada (Kuba S.)
+
+	- losujemy określoną liczbę instacji i każdą z nich rozwiązuje każdym z trzech algorytmów
+	- za rozwiązanie optymalne przyjmujemy najlepsze znalezione
+	- wyliczamy średnie PRD dla każdego algorytmu
+
+3. Pomiar czasu algorytmów w zależności od rozmiaru instancji (dla 2OPT) (Kuba K.)
+
+	- losujemy instancje różnych rozmiarów
+	- mierzymy czas działania dla poszczególnych rozmiarów
+	- sporządzamy wykres zależności czasu od rozmiaru instancji
+
+
+4. Testy statystyczne (tak jak w instrukcji) (Kuba K.)
+
+	- Porównujemy PRD najbliżeszgo sąsiada z 2OPT i z k-random
+	- Dla instancji z TSPLIB, podziałem na symetryczne i niesymetryczne
+	- Uśredniamy otrzymane PRD
