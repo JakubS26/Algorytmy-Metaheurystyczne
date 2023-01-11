@@ -1,3 +1,4 @@
+## To jest test nr 2
 1. Badanie PRD algorytmu k-random w zależności od k (Kuba S.)
 
 	- wybór instanicji początkoywch (po kilka dla typu), podział na typy i rozmiary (TSPLIB)
