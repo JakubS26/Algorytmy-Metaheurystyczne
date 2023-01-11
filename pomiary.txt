@@ -22,3 +22,5 @@
 	- Porównujemy PRD najbliżeszgo sąsiada z 2OPT i z k-random
 	- Dla instancji z TSPLIB, podziałem na symetryczne i niesymetryczne
 	- Uśredniamy otrzymane PRD
+
+###To jest test Githuba
